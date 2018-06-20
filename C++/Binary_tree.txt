@@ -1,0 +1,190 @@
+/***************************************************
+Program: Binary Tree
+Programmer(s): Kyo Kipp
+Last Updated: 5 Dec 2016
+Discription: Construct a Binary Tree
+and have it be able to sort and print the
+leaves in 3 ways inorder, preorder, postorder.
+Additional Files: stdafx.h; ReadMe.txt
+****************************************************/
+
+#include "stdafx.h"
+#include<iostream>
+using namespace std;
+
+class binary_tree
+{
+private:
+	struct node     // Leaf of binary_tree
+	{
+		int data;
+		node *left;
+		node *right;
+	};
+
+public:
+	//-----------------Constructor------------------
+	node *p;     // Points to Beginning tree
+	binary_tree()     // Constructor
+	{
+		p = NULL;
+	}
+	//---------------End Constructor----------------
+
+	void build(int num)
+	{
+		node *s;
+		s = new node;
+		s->data = num;
+		s->left = NULL;
+		s->right = NULL;
+		// -----------------------
+		if (p == NULL)
+			p = s;
+
+		else
+		{
+			node *t;
+			t = p;
+			while (t != NULL)
+			{
+				if (t->data > num)
+				{
+					if (t->left == NULL)
+					{
+						t->left = s;
+						break;
+					}
+					else
+						t = t->left;
+				}
+
+				else if (t->data < num)
+				{
+					if (t->right == NULL)
+					{
+						t->right = s;
+						break;
+					}
+					else
+						t = t->right;
+				}
+				else
+				{
+					cout << "This number was either a duplicate or an error occurred. It was not added to the BST." << endl;
+					delete s;
+					break;
+				}
+			}
+		}
+	}
+
+
+	void in_sort(node *ptr)     // Print Tree in InOrder
+	{
+		if (ptr)
+		{
+			in_sort(ptr->left);
+			cout << ptr->data << " ";
+			in_sort(ptr->right);
+		}
+	}
+
+
+	void post_sort(node *ptr)     // Print Tree in PostOrder
+	{
+		if (ptr)
+		{
+			post_sort(ptr->left);
+			post_sort(ptr->right);
+			cout << ptr->data << " ";
+		}
+	}
+
+
+	void pre_sort(node *ptr)     // Print Tree in PreOrder
+	{
+		if (ptr)
+		{
+			cout << ptr->data << " ";
+			pre_sort(ptr->left);
+			pre_sort(ptr->right);
+		}
+	}
+
+
+	void remove_node(int num)
+	{
+		node *t;
+		t = p;
+		node *s;
+		s = t;
+
+		while (t != NULL)
+		{
+			if (t->data == num)
+			{
+				if (t->left == NULL && t->right == NULL)
+				{
+					if (s == t)
+						s->left = NULL;
+					else
+						s->right = NULL;
+					delete t;
+					
+				}
+				else if (t->left != NULL && t->right != NULL)
+				{
+
+				}
+			}
+		}
+	}
+
+
+	void balence_tree(int height)
+	{
+
+	}
+
+
+	int tree_height()
+	{
+	}
+
+
+};
+
+
+
+
+int main()
+{
+	binary_tree tree;     // Abridge calling class to tree
+	int arr[5] = { 7, 3, 12, 10, 5 };
+	int choice;
+
+	for (int i = 0; i < 5; ++i)     // Turn array into Binary Tree
+	{
+		tree.build(arr[i]);
+	}
+	cout << "Preorder sort press 1\nInorder Sort press 2\nPostorder Sort press 3\n\nYour choice: ";
+	cin >> choice;     // Determine which print order to run 
+
+	switch (choice){     // Runs Print request
+	case 1:
+		tree.pre_sort(tree.p);
+		cout << "\n" <<endl;
+		break;
+	case 2:
+		tree.in_sort(tree.p);
+		cout << "\n" << endl;
+		break;
+	case 3:
+		tree.post_sort(tree.p);
+		cout << "\n" << endl;
+		break;
+	}
+
+	return 0;
+}

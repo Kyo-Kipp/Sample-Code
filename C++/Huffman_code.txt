@@ -1,0 +1,201 @@
+/********************************************************
+Program Name: Huffman Tree
+Programmer(s): Kyo Kipp
+Last Updated: 6th Feb 2017
+Discription: Convert a String into a Binary Tree to
+compress the data by frequency of occurrence using
+the Huffman Method.
+Additional Files Reqd: ReadMe.Txt; stdafx.h; stdafx.cpp;
+********************************************************/
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Huff_Tree
+{
+private:
+	//The Basic node for linklist as well as tree construction
+	struct node
+	{
+		char data;
+		int freq;
+		node* next;
+		node* left;
+		node* right;
+	};
+
+public:
+	node* p;
+	//----------------__CONSTRUCTOR__----------------
+	Huff_Tree()
+	{
+		node* p = NULL;
+	}
+	//--------------__END CONSTRUCTOR__--------------
+
+
+	//Add node to the beginning of chain list.
+	void create_nodelist(char symb)
+	{
+		node* n;
+		n = new node;
+		n->data = symb;
+		n->freq = 1;
+		n->next = NULL;
+		n->left = NULL;
+		n->right = NULL;
+
+		if (p == NULL)
+			p = n;
+		else
+		{
+			n->next = p;
+			p = n;
+		}
+	}
+
+
+	//Checks if character is in chain list. If yes +1 to frequency. If no returns false.
+	bool chk_occur(char symb)
+	{
+		node* t;
+		t = p;
+
+		while (t != NULL)
+		{
+			if (t->data == symb)
+			{
+				t->freq = t->freq + 1;     //Adds +1 frequency to key
+				return true;
+			}
+			else
+			{
+				t = t->next;
+			}
+		}
+		return false;
+	}
+
+
+	// will sort link list from lowest to highest
+	void sort()
+	{
+		node* s = p;  //First item
+		node* t; //Second item compared to S
+
+		while (s != NULL)
+		{
+			t=s->next;
+			while (t != NULL)
+			{
+				
+				if (t->freq < s->freq)
+				{
+					node* temp;
+					temp = new node;
+
+			     	temp->data = s->data;
+					temp->freq = s->freq;
+					temp->left = s->left;
+					temp->right = s->right;
+
+					s->data = t->data;
+					s->freq = t->freq;
+					s->left = t->left;
+					s->right = t->right;
+
+					t->data = temp->data;
+					t->freq = temp->freq;
+					t->left = temp->left;
+					t->right = temp->right;
+				}
+				t = t->next;
+			}
+			s = s->next;
+		}
+	}
+
+
+	//will begin combining the list to form a tree
+	void assemble_tree()
+	{
+		while (p->next != NULL)
+		{
+			node* a = p->next;
+
+			//construct branch of tree
+			node* branch;
+			branch = new node;
+			branch->data = NULL;
+			branch->freq = p->freq + a->freq;
+			branch->next = a->next;
+			branch->left = p;
+			branch->right = a;
+
+			//cleanup and break off from list
+			p->next = NULL;
+			a->next = NULL;
+			p = branch;
+			sort();
+		}
+	}
+
+
+	//Prints the link list
+	void print_ll()
+	{
+		node* t;
+		t = p;
+
+		while (t != NULL)
+		{
+			cout << "The Data is:" << t->data << endl;
+			cout << "The Frequency is:" << t->freq << "\n" << endl;
+			t = t->next;
+		}
+	}
+
+
+	//Prints the Huffman Tree
+	void print_tree() 
+	{
+
+	}
+};
+
+
+
+
+void main()
+{
+	Huff_Tree tree;
+
+	string sentence;
+
+	cout << "                ___________Welcome!___________\n";
+	cout << "Using this program you can compress a sentence into" << endl;
+	cout << "a much smaller amount of data space using the Huffman Method.\n\n" << endl;
+
+	sentence = "You must construct additional Pylons.";
+	cout << "the sentence we will be compressing is: \n" << sentence << "\n\n" << endl;
+	char array[100];
+
+	//converts string into a character array and then immediately creates a node
+	for (int i = 0; i < sentence.size(); i++)
+	{
+		array[i] = sentence.at(i);
+
+		if (tree.chk_occur(array[i]) == false)
+		{
+			tree.create_nodelist(array[i]);
+		}
+	}
+
+	tree.sort();
+	//tree.print_ll();
+	tree.assemble_tree();
+	tree.print_ll();
+	//tree.print_tree();
+}

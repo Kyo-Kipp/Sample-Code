@@ -1,0 +1,101 @@
+/*******************************************************
+Program: 8 Queens
+Programmer(s):Kyo Kipp
+Last Updated: 7 Sept 2016
+Description: This program adds a queen in any space
+that is not threatened by any other previous queen.
+Additional Files:  stdafx.h;  stdafx.cpp;  ReadMe.txt
+*******************************************************/
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+void printboard(int board[8][8]) {
+	for (int i = 0; i< 8; ++i) {
+		for (int j = 0; j < 8; ++j) {
+			cout << board[i][j] << " ";
+		}
+		cout << endl;
+	}
+}
+
+bool checkrow(int x, int board[8][8]) {
+	for (int i = 0; i<8; ++i) {
+		if (board[x][i] == 1) {
+			return false;
+		}
+	}
+	return true;
+}
+
+bool checkcol(int y, int board[8][8]) {
+	for (int i = 0; i<8; ++i) {
+		if (board[i][y] == 1) {
+			return false;
+		}
+	}
+	return true;
+}
+
+bool inside(int x, int y){
+	if ((x >= 0) && (x <= 7) && (y >= 0) && (y <= 7)) {
+		return true;
+	}
+	return false;
+}
+
+
+bool diag(int x, int y, int board[8][8]) {
+	for (int i = 1; i <= 7; ++i) {
+		if (inside((x + i), (y + i)) == true && board[x + i][y + i] == 1) {
+			return false;
+		}
+		else if(inside((x + i), (y - i))==true && board[x + i][y - i] == 1){
+			return false;
+		}
+		else if (inside((x - i), (y + i)) == true && board[x - i][y + i] == 1) {
+			return false;
+		}
+		else if (inside((x - i), (y - i)) == true && board[x - i][y - i] == 1) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+}
+
+
+
+int main() {
+	//Declare Variables
+	int board[8][8];
+
+	//Initialize Board
+	for (int i = 0; i< 8; ++i) {
+		for (int j = 0; j < 8; ++j) {
+			board[i][j] = 0;
+		}
+	}
+
+	//Disciptive text
+	cout << "_______________Welcome to 8 Queens!_____________\n\nBelow you will see a rudimentary 8x8 chess board.\n";
+	cout << "The goal is to place Queens(marked by a 1) in a location\nso that they are not in the path of another queen.\n " << endl;
+	cout << "Let's Begin!\n\n" << endl;
+
+
+	//Checks if Valid
+	for (int x = 0; x < 8; ++x) {
+		for (int y = 0; y < 8; ++y) {
+			if (checkrow(x, board) == true && checkcol(y, board) == true && diag(x, y, board) == true) {
+				board[x][y] = 1;
+			}
+		}
+	}
+
+
+
+	printboard(board);
+	return 0;
+}
+
