@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css"> 
+    <title>Endless Woods Studios</title>
+</head>
+
+<body>
+    <div id="log">
+    	<a href="../index.html"><img alt="Website logo" src="../images/windy.jpeg"></a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="studio.html">Studio</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="support.html">Support</a></li>
+        </ul>
+    </nav>
+   
+    <!---------------------//MAIN CONTENT//------------------------>
+    
+    <div id="main3">
+    	<div id="port" align="center">
+        	<table>
+            	<tr>
+                	<td align="left"><a href="" onClick="return change_image(-1)"><img src="images/prev.png" alt="previous image"></a></td>
+					<td><img src="images/cubone.jpg" name="slideshow" height="333" alt="Pokemon"></td>
+                	<td align="right"><a href="javascript:change_image(1)" ><img src="images/next.png" alt="next image"></a></td>
+                </tr>
+            </table>
+	    </div> <!--//End Portfolio//-->
+           
+            
+    	<div id="social" align="center">
+           	<ul>
+               	<li><a href="https://www.facebook.com/" target="_blank"><img src="images/fb.png" onMouseOver="MouseRollover(this)" alt="Facebook"></a></li>
+                <li><a href="https://www.twitter.com/" target="_blank"><img src="images/twitter.png" onMouseOver="MouseRollover2(this)" onMouseOut="onMouseOut2(this)" alt="Twitter"></a></li>
+                <li><a href="https://www.linkedin.com/" target="_blank"><img src="images/linkedin.png" onMouseOver="MouseRollover3(this)" onMouseOut="onMouseOut3(this)" alt="Linkedin"></a></li>
+            </ul>
+         </div> <!--//End Social//-->
+    </div>
+    
+    
+    <script>
+		var Image = ["images/cubone.jpg","images/growlithe.jpg","images/seel.png","images/houndour.jpg","images/umbreon.jpg"];
+		var Image_Number = 0;
+		var Image_Length = Image.length -1;
+		
+		function change_image(num) {
+			Image_Number = Image_Number + num;
+			
+			if (Image_Number > Image_Length){
+				Image_Number = 0;
+			}
+			if (Image_Number < 0){
+				Image_Number = Image_Length;
+			}
+			document.slideshow.src= Image[Image_Number];
+			
+			return 0;
+		}
+		
+		<!--/Facebook/-->
+		function MouseRollover(MyImage){
+			MyImage.src = "images/fb_gray.png";
+		}
+		function MouseOut(MyImage){
+			MyImage.src = "images/fb.png";
+		}
+		
+		<!--/twitter/-->
+		function MouseRollover2(MyImage){
+			MyImage.src = "images/twitter_gray.png";
+		}
+		function MouseOut2(MyImage){
+			MyImage.src = "images/twitter.png";
+		}
+		
+		<!--/Linkedin/-->
+		function MouseRollover3(MyImage){
+			MyImage.src = "images/linkedin_gray.png";
+		}
+		function MouseOut3(MyImage){
+			MyImage.src = "images/linkedin.png";
+		}
+		
+	</script>
+    </body>
+    </html>

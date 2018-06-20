@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css"> 
+    <title>Assignment 3</title>
+</head>
+
+<body>
+	<div id="log" align="left">
+    	<a href="index.html"><img alt="Website logo" src="images/logo.png"></a>
+    </div>
+    
+    <div id="nav" align="right">
+    	<ul>
+        	<li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="work.html">Work</a></li> 
+        </ul>
+    </div> <!--//End Navigation//-->
+ 
+<div id="main">
+<h1>What is the Class Average?</h1>
+<h3> Sandy's average is 85</h3>
+<h3> James' average is 100</h3>
+<h3> Sam's average is 82</h3>
+<h3> Tonya's average is 75</h3>
+<button onClick="myFunction()">Average</button>
+<p id="demo"></p>
+
+<h2>Homework</h2>
+    <img src="images/Homework2.png" alt="Flowchart">
+</div><!--//End Main//-->
+
+
+<script>
+var Sandy = 85;
+var James = 100;
+var Sam = 82;
+var Tonya = 75;
+var Score = Sandy + James + Sam + Tonya;
+var avgScore = Score/4;
+
+function myFunction(){
+	document.getElementById("demo").innerHTML = "The class average is " + avgScore;
+}
+    </script>
+>
+</body>
+</html>

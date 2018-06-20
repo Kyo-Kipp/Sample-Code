@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css"> 
+    <title>Programming Logic</title>
+</head>
+
+<body>
+	<div id="log" align="left">
+    	<a href="index.html"><img alt="Website logo" src="images/logo.png"></a>
+    </div>
+    
+    <div id="nav" align="right">
+    	<ul>
+        	<li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="work.html">Work</a></li> 
+        </ul>
+    </div> <!--//End Navigation//-->
+
+<div id="main">
+<h1>How is the Class Average Doing?</h1>
+<h3> Sandy's average is 85</h3>
+<h3> James' average is 100</h3>
+<h3> Sam's average is 82</h3>
+<h3> Tonya's average is 75</h3>
+<p id="demo"></p>
+</div><!--//End main//-->
+
+<script>
+var Sandy = 65;
+var James = 60;
+var Sam = 82;
+var Tonya = 75;
+var Score = Sandy + James + Sam + Tonya;
+var avgScore = Score/4;
+
+if(avgScore > 80){
+	msg = "Good Job Class!";
+}
+else{
+	msg = "Keep Trying.";
+}
+
+document.getElementById("demo").innerHTML = msg;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/style.css"> 
+    <title>Endless Woods Studios</title>
+</head>
+
+<body>
+    <div id="log">
+    	<a href="../index.html"><img alt="Website logo" src="../images/windy.jpeg"></a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="studio.html">Studio</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="support.html">Support</a></li>
+        </ul>
+    </nav>
+   
+    <!---------------------//MAIN CONTENT//------------------------>
+    
+    <div id="slideshow">
+    	<div id="port" align="center">
+        	<table>
+            	<tr>
+                	<td align="left"><a href="" onClick="return change_image(-1)"><img src="../images/prev.png" alt="previous image"></a></td>
+					<td><img src="../images/001.jpg" name="slideshow" height="333" alt="Pokemon"></td>
+                	<td align="right"><a href="javascript:change_image(1)" ><img src="../images/next.png" alt="next image"></a></td>
+                </tr>
+            </table>
+	    </div> <!--//End Portfolio//-->
+    </div><!--//END SLIDESHOW//-->   
+            
+    	
+    
+    
+    <script>
+		var Image = ["../images/002.jpg","../images/003.jpg","../images/004.jpg","../images/005.jpg","../images/006.jpg", "../images/007.png"];
+		var Image_Number = 0;
+		var Image_Length = Image.length -1;
+		
+		function change_image(num) {
+			Image_Number = Image_Number + num;
+			
+			if (Image_Number > Image_Length){
+				Image_Number = 0;
+			}
+			if (Image_Number < 0){
+				Image_Number = Image_Length;
+			}
+			document.slideshow.src= Image[Image_Number];
+			
+			return 0;
+		}
+				
+	</script>
+    </body>
+    </html>

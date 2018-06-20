@@ -1,0 +1,194 @@
+/*****************************************
+CSS Page for Programming Logic Course
+
+*****************************************/
+
+@charset "UTF-8";
+
+body {
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	font-family: Helvetica, sans-serif;
+	width: 100%;
+	background-size: contain;
+	background-color: #fff;
+}
+
+/*#wrapper {	
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 600px;
+}*/
+
+#main {
+	float: left;
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 400px;
+}
+
+#log {
+	float: left;
+	margin: 10px;
+	padding: 10px;
+	border: 0px;
+	height: 200px;
+}
+
+/*********Navigation*********/
+
+
+#nav {
+	float: right;
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	height: 200px;
+	font-size: 21px;
+}
+
+ul {
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+}
+
+ul li {
+	display: inline;
+	list-style: none;
+	padding: 20px;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:link {
+	color: #dace5f;
+}
+
+a:visited {
+	color: #dace5f;
+}
+
+a:active {
+	color: #fff;
+}
+
+a:hover {
+	color: #aca240;
+}
+
+#assign {
+	float:left;
+	margin: 0px;
+	border: 0px;
+	padding: 20px 0px 0px;
+	width: 100%;
+	height: 200px;
+	text-align: center;
+}
+
+#social {
+	float: left;
+	margin: 0px;
+	border: 0px;
+	padding: 20px 0px 0px;
+	width: 100%;
+}
+
+h1 {
+	padding: 0px 0px 0px 25px;
+	color: #585555;
+	font-size: 30px;
+}
+
+h3 {
+	padding: 0px 0px 0px 25px;
+	color: #dace5f;
+	font-size: 21px;
+}
+
+h5 {
+	padding: 0px 25px;
+	color: #585555;
+}
+
+p {
+	padding: 20px 75px 25px;
+}
+
+tb {
+	padding: 20px;
+}
+
+/*********Index Page Specific*********/
+
+#homepage {
+	float: left;
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 480px;
+	background-color: #ebebeb;
+	background-image: url(../images/bookcover.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+
+
+
+/*********Assignment 1 Page Specific*********/
+
+.foodlist li {
+	display:list-item;
+	float:none;
+	padding: 5px;
+}
+
+
+
+
+/*********Assignment 2 Page Specific*********/
+
+p {
+	padding: 0px 0px 0px 25px;
+	color: #585555;
+	font-size: 20px;
+}
+
+button {
+	margin: 0px 0px 0px 25px;
+}
+
+
+
+/*********Work Page Specific*********/
+#main3{
+	float: left;
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 336px;
+	background-color:#585555;
+}
+
+/***************Contact Page***************/
+#form-id{
+	margin:auto;
+	padding:10px;
+	background:grey;
+	opacity:8;
+	width:220px;
+	color:white;
+	height:auto;
+	float:left;
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css"> 
+    <title>Programming Logic</title>
+</head>
+
+<body>
+	<div id="log" align="left">
+    	<a href="index.html"><img alt="Website logo" src="images/logo.png"></a>
+    </div>
+    
+    <div id="nav" align="right">
+    	<ul>
+        	<li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="work.html">Work</a></li> 
+        </ul>
+    </div> <!--//End Navigation//-->
+
+<div id="main">
+    <h1>This is a Do-While Loop.</h1>
+    <p id="demo"></p>
+    
+    <button onClick="myFunction()">Click</button>
+</div><!--//End Main//-->
+
+
+<script>
+function myFunction(){
+
+var students = ["Sandy", "James", "Sam","Tonya"];
+var i = 0;
+var names = "";
+
+do{
+ names += "<br> the students name is " + students[i];
+ i++;
+}while(i < 4);
+
+document.getElementById("demo").innerHTML = names;
+}
+</script>
+
+
+</body>
+</html>
